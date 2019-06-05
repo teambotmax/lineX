@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*- 
 from lineX import *
 from multiprocessing import Pool, Process
 from thrift.protocol import TCompactProtocol
@@ -13,38 +14,14 @@ from bs4 import BeautifulSoup
 from humanfriendly import format_timespan, format_size, format_number, format_length
 import pytz, time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, urllib, urllib.parse,youtube_dl,pafy,timeit,atexit,traceback,ffmpy,humanize
 from googletrans import Translator
-#ANTIJS_V2
-#cl = LineClient()
-cl = LineClient(authToken='EzEjrypJKoNYXETEaOEb.fKGJTJIkxbbTX1Nwlmso/W.Pz1t0drY6mGET4vza1K73yq7GoPzMdk0DUOL8MKuTYo=')
-cl.log("Auth Token : " + str(cl.authToken))
-channel = LineChannel(cl)
-cl.log("Channel Access Token : " + str(channel.channelAccessToken))
 
-#ki = LineClient()
-ki = LineClient(authToken='Eyp5V5QXtk9Y49Wm8354.RFJneOc2BvPNw1qmrUiGza.e6IyMjg97rBsh6mQNRXpWW7QZk1K0e4T1U4SLwV5jY0=')
-ki.log("Auth Token : " + str(ki.authToken))
-channel1 = LineChannel(ki)
-ki.log("Channel Access Token : " + str(channel1.channelAccessToken))
+cl = LINE()
+ki = LINE()
+kk = LINE()
+kc = LINE()
+sw = LINE()
 
-#kk = LineClient()
-kk = LineClient(authToken='EydMUSbEa9Q3lWektHw1.Yydpj4R+IYJop3B8TQLIyq.E/8y5LKxiw8sNlIEoC7PSeX/EBuBamInpBZRPuYy4Rs=')
-kk.log("Auth Token : " + str(kk.authToken))
-channel2 = LineChannel(kk)
-kk.log("Channel Access Token : " + str(channel2.channelAccessToken))
-
-#kc = LineClient()
-kc = LineClient(authToken='EyBAUc5kpmCFzGW8iqia.mnJVum2Z4Z37bSVf4RoSIG.sfVOyI9cE/xog7cIQnL7Rg9NGLSHeZ2Q7+UnhBLj4P8=')
-kc.log("Auth Token : " + str(kc.authToken))
-channel3 = LineChannel(kc)
-kc.log("Channel Access Token : " + str(channel3.channelAccessToken))
-
-#sw = LineClient()
-sw = LineClient(authToken='EyKgzjIA1ZdvC9Eugsz8.QouwOulm0iA7XipXsOzm6a.DKpxw5BxdtUain3ovGEUzybSkpl9qUN5kxGhGmfw8EE=')
-sw.log("Auth Token : " + str(sw.authToken))
-channel11 = LineChannel(sw)
-sw.log("Channel Access Token : " + str(channel11.channelAccessToken))
-
-poll = LinePoll(cl)
+oepoll = OEPoll(cl)
 call = cl
 creator = ["u8a6049ae83629033334864657a4cb506"]
 owner = ["u8a6049ae83629033334864657a4cb506"]
@@ -3284,13 +3261,12 @@ def bot(op):
     except Exception as error:
         print (error)
 
-
 while True:
     try:
-        ops = poll.singleTrace(count=50)
+        ops = oepoll.singleTrace(count=50)
         if ops is not None:
             for op in ops:
-                poll.setRevision(op.revision)
+                oepoll.setRevision(op.revision)
                 thread1 = threading.Thread(target=bot, args=(op,))#self.OpInterrupt[op.type], args=(op,)
                 thread1.start()
                 thread1.join()
