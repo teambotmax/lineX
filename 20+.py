@@ -1,44 +1,19 @@
 # -*- coding: utf-8 -*- 
-from LineAPI.linepy import *
-from LineAPI.akad.ttypes import Message
-from LineAPI.akad.ttypes import ContentType as Type
+from lineX import *
 from multiprocessing import Pool, Process
+from thrift.protocol import TCompactProtocol
+from thrift.transport import THttpClient
+from akad.ttypes import LoginRequest
+from akad import LineService
+import json, requests
+from datetime import datetime
+import time,random,sys,json,codecs,threading,glob,re,os,subprocess,asyncio
 from datetime import datetime, timedelta
 from time import sleep
 from bs4 import BeautifulSoup
-from ffmpy import FFmpeg
-import time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, pytz, html5lib, traceback, atexit
-import urllib, urllib3
-from gtts import gTTS
 from humanfriendly import format_timespan, format_size, format_number, format_length
-from gtts_token.gtts_token import Token
+import pytz, time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, urllib, urllib.parse,youtube_dl,pafy,timeit,atexit,traceback,ffmpy,humanize
 from googletrans import Translator
-from urllib.parse import urlencode
-import requests.packages.urllib3.exceptions as urllib3_exceptions
-#cl
-#cl = LINE()
-#================================================================================================================================================================================================================================================================================================
-#print ("[ INFO ] LOGIN")
-#print ("")
-#print (" /$$|                            ")
-#print ("| $$|                            ")
-#print ("| $$|        /$$$$$$  /$$$$$$$   ")
-#print ("| $$|       /$$__  $$| $$__  $$  ")
-#print ("| $$|      | $$  \ $$| $$  \ $$  ")
-#print ("| $$|      | $$  | $$| $$  | $$  ")
-#print ("| $$|      |  $$$$$$/| $$  | $$  ")
-#print ("|__/        \______/ |__/  |__/  ")
-#print ("                                 ")
-#print ("      Ryan | LINE: s.k.9.7    ")
-#print ("        @Reyprobots.com/SCRIPT      ")
-#print ("")
-#print ("Loading libraries..")
-#================================================================================================================================================================================================================================================================================================
-#f = open('token.txt','r')
-#tkn = f.read()
-
-#cl = LINE("{}".format(tkn))##LOGIN LEWAT TOKEN
-#f.close()
 
 cl = LINE("")
 cl.log("Auth Token : " + str(cl.authToken))
