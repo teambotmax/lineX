@@ -16,9 +16,7 @@ import pytz, time, random, sys, json, codecs, threading, glob, re, string, os, r
 from googletrans import Translator
 #===============================================================================================
 
-cl = LINE("EFZnXqIi6Xs2KooQt3v6.IMbjROnIKdmZsgrLEKY1bG.BbnCrp+lk3D+WBLpnWcrz+0Ln+hrFojPhTowzdMKU+M=")
-
-
+cl = LINE("")
 print ("==========[ Success Login ]===========")
 
 poll = OEPoll(cl)
