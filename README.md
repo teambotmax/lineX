@@ -40,13 +40,13 @@
 
     sudo pip3 install youtube_dl
 
-    git clone https://github.com/fajarprasetiya/KAGAME
+    git clone https://github.com/selfbotbymax/lineX
 
-    cd KAGAME
+    cd lineX
 
-    python3 kagame4.py
+    python3 1.py
 
-    python3 self.py
+    python3 4.py
 
 # INSTALL Di TERMUX :
 
@@ -82,13 +82,13 @@
 
     pip3 install tweepy
 
-    git clone https://github.com/fajarprasetiya/KAGAME
+    git clone https://github.com/selfbotbymax/lineX
 
-    cd KAGAME
+    cd lineX
 
-    python3 kagame4.py
+    python3 1.py
 
-    python3 self.py
+    python3 4.py
 
  # thanks buat para mastah yg sudah membuat sc tersebut
 
